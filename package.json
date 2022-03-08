@@ -1,11 +1,17 @@
 {
-  "name": "js-kata-starter",
+  "name": "create-react-component",
   "version": "1.0.0",
-  "description": "Starter project for kata (Node, TypeScript, Jest)",
-  "main": "index.js",
+  "description": "CLI for creating a React component in its own folder",
+  "main": "build/index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "test": "jest --watch --config --coverage jest.config.json",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "execute": "ts-node src/index.ts",
+    "build": "tsc --outDir build && cp -r src/templates build",
+    "pack": "npm run build && npm pack"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -22,20 +28,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mathieueveillard/js-kata-starter.git"
+    "url": "git+https://github.com/mathieueveillard/create-react-component.git"
   },
-  "keywords": [
-    "starter",
-    "project",
-    "kata",
-    "node",
-    "typescript",
-    "jest"
-  ],
+  "keywords": [],
   "author": "Mathieu Eveillard",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mathieueveillard/js-kata-starter/issues"
+    "url": "https://github.com/mathieueveillard/create-react-component/issues"
   },
-  "homepage": "https://github.com/mathieueveillard/js-kata-starter#readme"
+  "homepage": "https://github.com/mathieueveillard/create-react-component#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^9.0.0",
+    "handlebars": "^4.7.7",
+    "log-update": "^5.0.0",
+    "ts-node": "^10.7.0"
+  }
 }
